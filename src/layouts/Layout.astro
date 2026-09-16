@@ -1,40 +1,95 @@
 ---
 import '../styles/global.css';
-const { title = 'Roy Li | Public Profile', description = 'Roy Li — tech entrepreneur, public voice, and community advocate in Vancouver-Langara.' } = Astro.props;
+const {
+  title = 'Roy Li | Vancouver-Langara',
+  description = 'Roy Li — tech entrepreneur seeking the BC Conservative nomination in Vancouver-Langara. Safer streets, balanced budgets, less red tape, and a government that works for people.',
+  lang = 'en',
+} = Astro.props;
+const zh = lang === 'zh';
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    {zh && <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet" />}
     <title>{title}</title>
   </head>
   <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div><span class="dot"></span>{zh
+          ? <span>Roy Li 正在争取 <strong>BC 保守党 Vancouver-Langara 选区</strong>的提名候选人资格</span>
+          : <span>Roy Li is seeking the <strong>BC Conservative nomination in Vancouver-Langara</strong></span>}</div>
+        <a href={zh ? '/' : '/zh/'}>{zh ? 'English' : '中文'}</a>
+      </div>
+    </div>
     <header class="site-header">
       <nav class="nav">
-        <a class="brand" href="/">Roy <span>Li</span></a>
-        <div class="nav-links">
-          <a href="/about/">About</a>
-          <a href="/ideas/">Ideas</a>
-          <a href="/langara/">Vancouver-Langara</a>
-          <a href="/notes/">Notes</a>
-          <a href="/zh/">中文</a>
-          <a class="button primary" href="/contact/">Contact</a>
-        </div>
+        <a class="brand" href={zh ? '/zh/' : '/'}>
+          <span class="name">Roy Li</span>
+          <span class="riding">Vancouver-Langara</span>
+        </a>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
+        <label class="nav-toggle-label" for="nav-toggle"><span></span></label>
+        {zh ? (
+          <div class="nav-links">
+            <a href="/zh/#about">关于 Roy</a>
+            <a href="/zh/#priorities">政策主张</a>
+            <a href="/zh/#langara">Vancouver-Langara</a>
+            <a href="/">English</a>
+            <a class="button primary small" href="/contact/">联系</a>
+          </div>
+        ) : (
+          <div class="nav-links">
+            <a href="/about/">About</a>
+            <a href="/ideas/">Priorities</a>
+            <a href="/langara/">Vancouver-Langara</a>
+            <a href="/notes/">Notes</a>
+            <a class="zh" href="/zh/">中文</a>
+            <a class="button primary small" href="/contact/">Get in touch</a>
+          </div>
+        )}
       </nav>
     </header>
     <slot />
     <footer class="site-footer">
       <div class="footer-inner">
-        <div>
-          <strong>Roy Li</strong>
-          <p>Personal website. This is not an official campaign website and does not represent a nomination or candidacy announcement.</p>
+        <div class="footer-brand">
+          <div class="name">Roy Li</div>
+          <p>{zh
+            ? 'Roy Li 正在争取 BC 保守党 Vancouver-Langara 选区的提名。本网站为 Roy 个人所有，提名结果以政党正式公布为准。'
+            : 'Roy Li is seeking the BC Conservative nomination in Vancouver-Langara. This is Roy’s personal website; nomination outcomes are determined by the party’s official process.'}</p>
         </div>
-        <p><a href="https://www.linkedin.com/in/roy-li-2a4248217/">LinkedIn</a></p>
+        <div>
+          <h4>{zh ? '导航' : 'Explore'}</h4>
+          <ul>
+            <li><a href="/about/">About Roy</a></li>
+            <li><a href="/ideas/">Priorities</a></li>
+            <li><a href="/langara/">Vancouver-Langara</a></li>
+            <li><a href="/notes/">Notes</a></li>
+            <li><a href="/zh/">中文</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>{zh ? '联系' : 'Connect'}</h4>
+          <ul>
+            <li><a href="mailto:roy@xdt.com">roy@xdt.com</a></li>
+            <li><a href="https://www.linkedin.com/in/roy-li-2a4248217/" rel="noopener">LinkedIn</a></li>
+            <li><a href="/contact/">{zh ? '联系页面' : 'Contact page'}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Roy Li. Vancouver, British Columbia.</span>
+        <a href="/privacy/">Privacy</a>
       </div>
     </footer>
   </body>

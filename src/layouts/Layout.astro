@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+const { title = 'Roy Li for Richmond', description = 'A campaign website for accountable, practical, community-first civic leadership.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">Roy <span>Li</span></a>
+        <div class="nav-links">
+          <a href="/about/">About</a>
+          <a href="/platform/">Platform</a>
+          <a href="/news/">News</a>
+          <a href="/zh/">中文</a>
+          <a class="button primary" href="/volunteer/">Volunteer</a>
+        </div>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <strong>Roy Li for Richmond</strong>
+          <p>Authorized by the official campaign agent. Placeholder pending final legal wording.</p>
+        </div>
+        <p>Built as a static site for Cloudflare Pages.</p>
+      </div>
+    </footer>
+  </body>
+</html>

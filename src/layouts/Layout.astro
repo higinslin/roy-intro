@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
 const {
-  title = 'Roy Li | Vancouver-Langara',
-  description = 'Roy Li — tech entrepreneur seeking the BC Conservative nomination in Vancouver-Langara. Safer streets, balanced budgets, less red tape, and a government that works for people.',
+  title = 'Roy Li | Vancouver-Fraserview',
+  description = 'Roy Li — tech entrepreneur seeking the BC Conservative nomination in Vancouver-Fraserview. Safer streets, balanced budgets, less red tape, and a government that works for people.',
   lang = 'en',
 } = Astro.props;
 const zh = lang === 'zh';
@@ -26,8 +26,8 @@ const zh = lang === 'zh';
     <div class="topbar">
       <div class="topbar-inner">
         <div><span class="dot"></span>{zh
-          ? <span>Roy Li 正在争取 <strong>BC 保守党 Vancouver-Langara 选区</strong>的提名候选人资格</span>
-          : <span>Roy Li is seeking the <strong>BC Conservative nomination in Vancouver-Langara</strong></span>}</div>
+          ? <span>Roy Li 正在争取 <strong>BC 保守党 Vancouver-Fraserview 选区</strong>的提名候选人资格</span>
+          : <span>Roy Li is seeking the <strong>BC Conservative nomination in Vancouver-Fraserview</strong></span>}</div>
         <a href={zh ? '/' : '/zh/'}>{zh ? 'English' : '中文'}</a>
       </div>
     </div>
@@ -35,7 +35,7 @@ const zh = lang === 'zh';
       <nav class="nav">
         <a class="brand" href={zh ? '/zh/' : '/'}>
           <span class="name">Roy Li</span>
-          <span class="riding">Vancouver-Langara</span>
+          <span class="riding">Vancouver-Fraserview</span>
         </a>
         <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation" />
         <label class="nav-toggle-label" for="nav-toggle"><span></span></label>
@@ -43,7 +43,7 @@ const zh = lang === 'zh';
           <div class="nav-links">
             <a href="/zh/#about">关于 Roy</a>
             <a href="/zh/#priorities">政策主张</a>
-            <a href="/zh/#langara">Vancouver-Langara</a>
+            <a href="/zh/#fraserview">Vancouver-Fraserview</a>
             <a href="/">English</a>
             <a class="button primary small" href="/contact/">联系</a>
           </div>
@@ -51,7 +51,7 @@ const zh = lang === 'zh';
           <div class="nav-links">
             <a href="/about/">About</a>
             <a href="/ideas/">Priorities</a>
-            <a href="/langara/">Vancouver-Langara</a>
+            <a href="/fraserview/">Vancouver-Fraserview</a>
             <a href="/notes/">Notes</a>
             <a class="zh" href="/zh/">中文</a>
             <a class="button primary small" href="/contact/">Get in touch</a>
@@ -65,15 +65,15 @@ const zh = lang === 'zh';
         <div class="footer-brand">
           <div class="name">Roy Li</div>
           <p>{zh
-            ? 'Roy Li 正在争取 BC 保守党 Vancouver-Langara 选区的提名。本网站为 Roy 个人所有，提名结果以政党正式公布为准。'
-            : 'Roy Li is seeking the BC Conservative nomination in Vancouver-Langara. This is Roy’s personal website; nomination outcomes are determined by the party’s official process.'}</p>
+            ? 'Roy Li 正在争取 BC 保守党 Vancouver-Fraserview 选区的提名。本网站为 Roy 个人所有，提名结果以政党正式公布为准。'
+            : 'Roy Li is seeking the BC Conservative nomination in Vancouver-Fraserview. This is Roy’s personal website; nomination outcomes are determined by the party’s official process.'}</p>
         </div>
         <div>
           <h4>{zh ? '导航' : 'Explore'}</h4>
           <ul>
             <li><a href="/about/">About Roy</a></li>
             <li><a href="/ideas/">Priorities</a></li>
-            <li><a href="/langara/">Vancouver-Langara</a></li>
+            <li><a href="/fraserview/">Vancouver-Fraserview</a></li>
             <li><a href="/notes/">Notes</a></li>
             <li><a href="/zh/">中文</a></li>
           </ul>
